@@ -7,7 +7,8 @@ function App() {
     <>
       <a href="/labs/a1/index.html">Assignment 1</a>
       <a href="/labs/a2/index.html">Assignment 2</a>
-      <Link to="/kanbas">Kanbas</Link>
+      <a href="/kanbas/profile/index.html">Kanbas</a>
+      {/* <Link to="/kanbas">Kanbas</Link> */}
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />

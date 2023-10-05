@@ -14,7 +14,7 @@ import {
 const router = createBrowserRouter(
   createRoutesFromElements([
     <Route path="/" element={<App />} />,
-    <Route path="/kanbas" element={<Kanbas />} />,
+    // <Route path="/kanbas" element={<Kanbas />} />,
   ])
 );
 

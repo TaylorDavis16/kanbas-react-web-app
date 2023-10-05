@@ -1,0 +1,139 @@
+#nav {
+    width: 75px !important;
+    min-height: max(100vh, 100%);
+}
+
+#nav ul {
+    max-width: 100% !important;
+}
+
+#nav ul li {
+    max-width: 100% !important;
+}
+
+.nav-item-text {
+    font-size: 0.9em !important;
+}
+
+.nav-link,
+nav-link:visited {
+    color: #cfc4c4;
+    max-width: 100% !important;
+}
+
+
+.nav-pills .nav-link span {
+    color: red;
+}
+
+.nav-pills .nav-link.active {
+    background-color: #cfc4c4;
+    color: red;
+}
+
+#page-header h2 {
+    font-weight: 200;
+}
+
+#page-subheader h4 {
+    font-weight: 400;
+}
+
+#account-icon {
+    color: grey;
+}
+
+.nav-pills .nav-link {
+    width: 100vw;
+    border-radius: 0;
+    padding: 5px;
+}
+
+.nav-pills .nav-link div span,
+.nav-pills .nav-link div div {
+    margin-block: 3px;
+}
+
+.page-content-wrapper {
+    margin: 35px;
+}
+
+.override-btn {
+    background-color: rgb(233, 233, 233);
+    border: 1px solid grey;
+    color: black;
+}
+
+.btn-primary.override-btn:active {
+    background-color: grey;
+    border: 1px solid grey;
+    color: black;
+}
+
+#cards-container {
+    max-width: 1800px;
+    margin-right: 30px;
+    column-gap: 30px;
+}
+
+.course-solid-color {
+    background-color: blue;
+    min-height: 125px;
+}
+
+.col {
+    width: 300px;
+    height: 400px;
+    margin-block: 30px;
+}
+
+.card {
+    width: 100%;
+}
+
+.card-img-top {
+    position: relative;
+}
+
+.override-card-img-button {
+    color: white;
+}
+
+
+.card-body a {
+    text-decoration: none;
+    color: red;
+}
+
+.card-body .card-header-content-container {
+    color: red;
+}
+
+.ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.card-body .card-title {
+    color: red;
+    font-size: 0.9em;
+}
+
+.card-title-text {
+    color: blue;
+}
+
+.card-body .card-subtitle {
+    font-weight: 300;
+    font-size: 1em;
+}
+
+.card-body p {
+    font-size: 0.7em;
+    color: grey;
+}
+
+.course-card-icon i {
+    color: grey;
+}

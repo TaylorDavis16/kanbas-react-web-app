@@ -1,0 +1,204 @@
+#nav {
+    width: 75px !important;
+    min-height: max(100vh, 100%);
+}
+
+#nav ul {
+    max-width: 100% !important;
+}
+
+#nav ul li {
+    max-width: 100% !important;
+}
+
+.nav-item-text {
+    font-size: 0.9em !important;
+}
+
+.nav-link,
+.nav-link:visited {
+    color: #cfc4c4;
+    max-width: 100% !important;
+}
+
+.nav-link:hover {
+    color: red;
+}
+
+.nav-pills .nav-link span {
+    color: red;
+}
+
+.nav-pills .nav-link.active {
+    background-color: #cfc4c4;
+    color: red;
+}
+
+#account-icon {
+    color: grey;
+}
+
+.nav-pills .nav-link {
+    width: 100vw;
+    padding: 5px;
+}
+
+.nav-pills .nav-link div span,
+.nav-pills .nav-link div div {
+    margin-block: 3px;
+}
+
+.page-content-wrapper {
+    margin: 25px;
+}
+
+#assignments-page-header-icon {
+    color: red;
+}
+
+.breadcrumb-item a {
+    color: red;
+    text-decoration: none;
+}
+
+.secondary-sidebar {
+    max-width: 190px;
+}
+
+.secondary-sidebar-title {
+    font-style: italic;
+    color: rgb(93, 93, 93);
+}
+
+.ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.secondary-sidebar ul {
+    margin: 0;
+    padding-left: 0;
+}
+
+.secondary-sidebar li {
+    list-style-type: none;
+    padding-block: 10px;
+    /* margin-block: 20px; */
+}
+
+.secondary-sidebar li a {
+    text-decoration: none;
+    color: red;
+    font-size: 1.2em;
+}
+
+.secondary-sidebar li.selected {
+    padding-left: 8px;
+    margin-left: -10px;
+}
+
+#assignments-sidebar li.selected a {
+    color: black;
+    font-weight: 500;
+}
+
+
+#links-list {
+    list-style: none;
+    padding: 0;
+}
+
+.override-btn {
+    background-color: rgb(233, 233, 233);
+    color: black;
+}
+
+.btn-primary.override-btn:active {
+    background-color: grey;
+    color: black;
+}
+
+.override-btn:hover {
+    background-color: lightgrey;
+    color: black;
+}
+
+.btn-red {
+    color: white;
+    background-color: red;
+}
+
+.btn-primary.btn-red:active {
+    background-color: red;
+    color: white;
+}
+
+.btn-red:hover {
+    background-color: red;
+    color: white;
+}
+
+.assignment-module a {
+    text-decoration: none;
+    color: black;
+}
+
+
+.module-title .two-ellipsis {
+    padding-left: 2px;
+}
+
+
+.assignment-module .module-slide-link {
+    color: red;
+}
+
+
+.btn-50-width {
+    width: 50%;
+}
+
+.check-white {
+    color: white;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+.numbered-notification-badger {
+    color: red;
+}
+
+.link-red {
+    text-decoration: none;
+    color: red;
+}
+
+.link-red:hover,
+.secondary-sidebar li a:hover {
+    color: red;
+}
+
+.secondary-sidebar li.selected a:hover {
+    color: black;
+}
+
+.right-sidebar-detail {
+    font-size: 0.8em;
+}
+
+.link-small {
+    font-size: 0.8em;
+}
+
+.assignment-item-title {
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.assignment-item-detail,
+.assignment-item-due-date {
+    font-size: 0.9em;
+}
