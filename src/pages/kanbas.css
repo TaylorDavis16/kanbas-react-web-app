@@ -1,0 +1,143 @@
+body {
+    font-family: 'Arial', sans-serif;
+}
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;  /* Important to make children potentially stretch full height */
+}
+
+.kanbas {
+    height: 100vh; 
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar {
+    flex-direction: column;
+    align-items: center; /* 水平居中 */
+    justify-content: center; /* 垂直居中 */
+    background-color: black;
+    width: 85px; /* Between 75 and 85 pixels */
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-y: hidden; /* 阻止垂直滚动 */
+    overflow-x: hidden; /* 阻止横向滚动 */
+    position: sticky; 
+    top: 0; /* 固定在顶部 */
+}
+
+.sidebar-col {
+    flex: 0 0 250px; /* 或您选择的任何其他值 */
+    max-width: 250px; /* 或您选择的任何其他值 */
+}
+
+.sidebar-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0; 
+    background-color: black;
+}
+
+.sidebar-logo img {
+    width: 60px; /* Adjust based on your logo's dimensions */
+    height: auto;
+}
+
+.sidebar a {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 5px; /* Padding between 5 and 10 pixels */
+    margin: 6px 5px; /* Margin between 5 and 10 pixels */
+    color: red;
+    background-color: black;
+    text-align: center;
+    line-height: 24px; /* Adjust based on the space you want between the icon and the text */
+}
+
+.sidebar a.account {
+    color: white;
+}
+
+/* ... your existing styles ... */
+
+.sidebar a.active .fa {
+    color: white;
+}
+
+
+.sidebar a.active {
+    color: red;
+    background-color: white;
+}
+
+.sidebar a.active .fa,
+.sidebar a.active > * {
+    color: red;
+}
+
+/* ... your existing styles ... */
+
+
+
+
+/* Adjust the font size to match the intended design */
+.sidebar a, .sidebar .fa {
+    font-size: 14px; /* Adjust as needed */
+}
+
+.sidebar a .svg-inline--fa {  
+    font-size: 24px;  /* Adjust this value to your desired size */
+}
+
+/* ... existing styles ... */
+
+.account-sidebar {
+    background-color: black;
+    width: 200px;
+    height: 1000vh;
+    padding: auto;
+    overflow: hidden;
+}
+
+.account-sidebar a {
+    color: white;
+    font-size: 16px;
+    padding: 8px 5px;
+    text-align: center;
+    display: block;
+    text-decoration: none;
+}
+
+.account-sidebar a:hover {
+    background-color: white;
+    color: red;
+}
+
+.list-group-item {
+    display: block;
+}
+
+@media (max-width: 767px) {
+    .sidebar {
+        width: 100%;
+        background-color: transparent; /* 移除全屏黑色背景 */
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sidebar .navbar {
+        background-color: black; /* 只给navbar部分黑色背景 */
+    }
+}
+
+
+
+
+
+
+
