@@ -60,7 +60,7 @@ function RightSidebar() {
           <div className="col-9">
             <div className="d-flex flex-column">
               <div>
-                <a href="#" className="to-do-item-title link-red">
+                <a href="./" className="to-do-item-title link-red">
                   Grade Combustion Analysis
                 </a>
               </div>
@@ -81,7 +81,7 @@ function RightSidebar() {
           </div>
           <div className="col-5 text-nowrap ellipsis ms-1">
             <i className="fa-regular fa-calendar"></i>
-            <a href="#" className="link-red text-nowrap">
+            <a href="./" className="link-red text-nowrap">
               View Calendar
             </a>
           </div>
@@ -95,7 +95,7 @@ function RightSidebar() {
               </div>
               <div className="col-11 d-flex flex-column">
                 <div className="row coming-up-item-title">
-                  <a href="#" className="link-red">
+                  <a href="./" className="link-red">
                     Lecture
                   </a>
                   <div className="coming-up-item-detail right-sidebar-detail">
@@ -114,7 +114,7 @@ function RightSidebar() {
               </div>
               <div className="col-11 d-flex flex-column">
                 <div className="row coming-up-item-title">
-                  <a href="#" className="link-red">
+                  <a href="./" className="link-red">
                   Aerodynamics
                   </a>
                   <div className="coming-up-item-detail right-sidebar-detail">
@@ -133,7 +133,7 @@ function RightSidebar() {
               </div>
               <div className="col-11 d-flex flex-column">
                 <div className="row coming-up-item-title">
-                  <a href="#" className="link-red">
+                  <a href="./" className="link-red">
                   Spacecraft Design
                   </a>
                   <div className="coming-up-item-detail right-sidebar-detail">
@@ -147,7 +147,7 @@ function RightSidebar() {
           </div>
         </div>
         <div className="right-sidebar-coming-up-next-week">
-          <a href="#" className="link-red link-small">
+          <a href="./" className="link-red link-small">
             12 more in the next week...
           </a>
         </div>

@@ -17,7 +17,7 @@ function AccountHeader() {
 </span>
 
         <div className="float-end">
-          <a href="./edit.html" className="btn btn-primary override-btn">
+          <a href="./" className="btn btn-primary override-btn">
             <i className="fa-solid fa-pencil"></i>
             Edit Profile
           </a>

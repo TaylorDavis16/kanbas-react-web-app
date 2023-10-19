@@ -28,7 +28,7 @@ function CourseHeader(props) {
           </ol>
         </nav>
         <div className="ms-auto float-end">
-          <a href="" className="btn btn-light">
+          <a href="./" className="btn btn-light">
             <i className="fa-solid fa-glasses me-1"></i>
             Student View
           </a>

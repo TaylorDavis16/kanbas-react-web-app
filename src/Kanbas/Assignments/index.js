@@ -7,7 +7,7 @@ function Assignments(props) {
     <div>
       <div className="list-group p-0 mb-5 rounded-0 assignment-module">
         <div
-          href="#"
+          href="./"
           className="d-flex list-group-item list-group-item-secondary module-title border-start-1 border-top-1 border-end-1 border-bottom-0"
         >
           <div className="d-flex align-items-center two-ellipsis">
@@ -15,7 +15,7 @@ function Assignments(props) {
             <i className="fa-solid fa-ellipsis-vertical"></i>
           </div>
           <div className="ms-2 me-auto">
-            <a href="#">Assignments</a>
+            <a href="./">Assignments</a>
           </div>
           <div className="d-flex align-items-center title-icons">
             <div className="rounded-pill border border-dark-subtle me-3">
@@ -28,7 +28,7 @@ function Assignments(props) {
 
         {assignments.map((assignment) => (
           <div
-            href="#"
+            href="./"
             className="d-flex align-items-center list-group-item assignment-item finished"
             key={assignment._id}
           >

@@ -27,7 +27,7 @@ function Card(course) {
               </p>
             </div>
           </Link>
-          <a href="#" className="course-card-icon">
+          <a href="./" className="course-card-icon">
             <i className="fa-regular fa-note-sticky"></i>
           </a>
         </div>

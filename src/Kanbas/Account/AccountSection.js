@@ -5,8 +5,7 @@ function AccountSection() {
       <AccountHeader />
       <div className="mb-4 profile-section">
         <h2>Contact</h2>
-        No registered services, you can add some on the <a href="#">settings</a>
-        page.
+        No registered services, you can add some on the settings page.
       </div>
       <div className="mb-4 profile-section">
         <h3>Biography</h3>

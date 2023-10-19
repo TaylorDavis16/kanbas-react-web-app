@@ -2,7 +2,7 @@ function Module(module) {
   return (
     <>
       <div
-        href="#"
+        href="./"
         className="d-flex align-items-center list-group-item module-level-1 finished"
       >
         <div className="d-flex align-items-center two-ellipsis">
@@ -10,7 +10,7 @@ function Module(module) {
           <i className="fa-solid fa-ellipsis-vertical"></i>
         </div>
         <div className="ms-2 me-auto">
-          <a href="#">{module.name}</a>
+          <a href="./">{module.name}</a>
         </div>
         <div className="d-flex align-items-center float-end">
           <i className="fa fa-check-circle me-3" aria-hidden="true"></i>
@@ -18,7 +18,7 @@ function Module(module) {
         </div>
       </div>
       <div
-        href="#"
+        href="./"
         className="d-flex align-items-center list-group-item module-level-2 finished"
       >
         <div className="d-flex align-items-center two-ellipsis">
@@ -26,7 +26,7 @@ function Module(module) {
           <i className="fa-solid fa-ellipsis-vertical"></i>
         </div>
         <div className="module-subtask ms-5 me-auto">
-          <a href="#">{module.description}</a>
+          <a href="./">{module.description}</a>
         </div>
         <div className="d-flex flex-row align-items-center float-end">
           <i className="fa fa-check-circle me-3" aria-hidden="true"></i>

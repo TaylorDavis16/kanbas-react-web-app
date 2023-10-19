@@ -22,7 +22,7 @@ function GradeTable(props) {
                         return (
                             <tr key={e._id}>
                                 <td scope="row">
-                                        <a href="#" className="link-no-decoration link-red fw-normal">{user.firstName} {user.lastName}</a>
+                                        <a href="./" className="link-no-decoration link-red fw-normal">{user.firstName} {user.lastName}</a>
                             </td>
                             {assignments.map((a) => {
                                 const grade = db.grades.find(
