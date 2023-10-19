@@ -1,0 +1,101 @@
+#courses-page-header-icon {
+  color: #e50000;
+}
+
+.breadcrumb-item a {
+  color: #e50000;
+  text-decoration: none;
+}
+
+.fa-check-circle {
+  color: green;
+}
+
+#links-list {
+  list-style: none;
+  padding: 0;
+}
+
+.override-btn {
+  background-color: rgb(233, 233, 233);
+  border: 1px solid rgb(196, 195, 195);
+  color: black;
+}
+
+.btn-primary.override-btn:active {
+  background-color: grey;
+  border: 1px solid grey;
+  color: black;
+}
+
+.override-btn:hover {
+  background-color: lightgrey;
+  color: black;
+  border: 1px solid lightgrey;
+}
+
+.course-module a {
+  text-decoration: none;
+  color: black;
+}
+
+.course-module a:hover {
+  text-decoration: underline;
+}
+
+.module-title .two-ellipsis {
+  padding-left: 2px;
+}
+
+.finished {
+  border-radius: 0;
+  border-left: 3px solid;
+  border-left-color: green;
+}
+
+.course-module .module-slide-link {
+  color: #e50000;
+}
+
+.fa-link {
+  color: green;
+  font-size: 0.8em;
+}
+
+.btn-50-width {
+  width: 50%;
+}
+
+.check-white {
+  color: white;
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.numbered-notification-badger {
+  color: #e50000;
+}
+
+.numbered-notification-badger span {
+  color: white;
+}
+
+.link-red {
+  text-decoration: none;
+  color: #e50000;
+}
+
+.link-red:hover,
+.to-do-item-title:hover {
+  text-decoration: underline;
+}
+
+.right-sidebar-detail {
+  font-size: 0.8em;
+}
+
+.link-small {
+  font-size: 0.8em;
+}

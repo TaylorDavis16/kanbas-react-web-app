@@ -1,0 +1,21 @@
+
+.link-no-decoration {
+    text-decoration: none;
+    color: black;
+}
+
+.link-red {
+    color: #E50000;
+}
+
+.column-subtitle {
+    font-size: 0.9em;
+}
+
+td {
+    text-align: center;
+}
+
+.focus-red:focus {
+    border-color: #E50000;
+}

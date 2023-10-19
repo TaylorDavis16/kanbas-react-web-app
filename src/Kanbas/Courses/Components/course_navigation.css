@@ -1,0 +1,50 @@
+
+.secondary-sidebar {
+    max-width: 190px;
+}
+
+.secondary-sidebar-title {
+    font-style: italic;
+    color: rgb(253, 252, 252);
+}
+
+.ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.secondary-sidebar ul {
+    margin: 0;
+    padding-left: 0;
+}
+
+.secondary-sidebar li {
+    list-style-type: none;
+    padding-block: 10px;
+}
+
+.secondary-sidebar li a {
+    text-decoration: none;
+    color: #E50000;
+    font-size: 1.2em;
+}
+
+.secondary-sidebar li.selected {
+    padding-left: 8px;
+    margin-left: -10px;
+    border-left: 2px solid black;
+}
+
+.secondary-sidebar li.selected a {
+    color: black;
+    font-weight: 500;
+}
+
+.secondary-sidebar li a:hover {
+    color: #a30000;
+}
+
+.secondary-sidebar li.selected a:hover {
+    color: black;
+}

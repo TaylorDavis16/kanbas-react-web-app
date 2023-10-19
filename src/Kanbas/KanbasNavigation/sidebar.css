@@ -1,0 +1,150 @@
+#nav {
+    width: 85px !important;
+    min-height: max(100vh, 100%);
+}
+
+#nav ul {
+    max-width: 100% !important;
+}
+
+#nav ul li {
+    max-width: 100% !important;
+}
+
+.nav-item-text {
+    color: #fdfafa;
+    font-size: 0.9em !important;
+}
+
+.nav-link,
+.nav-link:visited {
+    color: #fdfafa;
+    max-width: 100% !important;
+}
+
+.nav-pills .nav-link span {
+    color: red;
+}
+
+.nav-pills .nav-link.active {
+    background-color: #cfc4c4;
+    color: red;
+}
+
+#account-icon {
+    color: grey;
+}
+
+.nav-pills .nav-link {
+    width: 100vw;
+    padding: 5px;
+}
+
+.nav-pills .nav-link div span,
+.nav-pills .nav-link div div {
+    margin-block: 3px;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;  /* to ensure it overlays any content */
+}
+
+
+
+/*  */
+
+.breadcrumb-item a {
+    color: red;
+    text-decoration: none;
+}
+
+#links-list {
+    list-style: none;
+    padding: 0;
+}
+
+.override-btn {
+    background-color: rgb(170, 164, 164);
+    color: black;
+}
+
+.btn-primary.btn-red:active {
+    background-color: red;
+    color: white;
+}
+
+.override-btn:hover {
+    background-color: lightgrey;
+    color: black;
+    border: 1px solid lightgrey;
+}
+.btn-primary.override-btn:active {
+    background-color: grey;
+    color: black;
+}
+
+.btn-red {
+    color: white;
+    background-color: red;
+}
+
+
+
+.btn-red:hover {
+    background-color: #b90000;
+    color: white;
+    border: 1px solid white;
+}
+
+.course-module a {
+    text-decoration: none;
+    color: black;
+}
+
+
+
+.module-title .two-ellipsis {
+    padding-left: 2px;
+}
+
+.course-module .module-slide-link {
+    color: red;
+}
+
+
+.btn-50-width {
+    width: 50%;
+}
+
+.check-white {
+    color: white;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+.numbered-notification-badger {
+    color: red;
+}
+
+.numbered-notification-badger span {
+    color: white;
+}
+
+.link-red {
+    text-decoration: none;
+    color: red;
+}
+
+
+.right-sidebar-detail {
+    font-size: 0.8em;
+}
+
+.link-small {
+    font-size: 0.8em;
+}

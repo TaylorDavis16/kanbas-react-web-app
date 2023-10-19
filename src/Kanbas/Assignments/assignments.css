@@ -1,0 +1,90 @@
+
+#assignments-sidebar li.selected a {
+    color: black;
+    font-weight: 500;
+}
+
+.check-white {
+    color: white;
+}
+
+.fa-check-circle {
+    color: green;
+}
+
+#links-list {
+    list-style: none;
+    padding: 0;
+}
+
+.override-btn {
+    background-color: rgb(233, 233, 233);
+    border: 1px solid rgb(196, 195, 195);
+    color: black;
+}
+
+.btn-primary.override-btn:active {
+    background-color: grey;
+    border: 1px solid grey;
+    color: black;
+}
+
+.override-btn:hover {
+    background-color: lightgrey;
+    color: black;
+    border: 1px solid lightgrey;
+}
+
+.assignment-module a {
+    text-decoration: none;
+    color: black;
+}
+
+.assignment-module a:hover {
+    text-decoration: underline;
+}
+
+.module-title .two-ellipsis {
+    padding-left: 2px;
+}
+
+.finished {
+    border-radius: 0;
+    border-left: 3px solid;
+    border-left-color: green;
+}
+
+.assignment-module .module-slide-link {
+    color: #E50000;
+}
+
+.fa-link {
+    color: green;
+    font-size: 0.8em;
+}
+
+.btn-50-width {
+    width: 50%;
+}
+
+
+.link-red:hover,
+
+
+.link-small {
+    font-size: 0.8em;
+}
+
+.assignment-item-icon {
+    color: green;
+}
+
+.assignment-item-title {
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.assignment-item-detail,
+.assignment-item-due-date {
+    font-size: 0.9em;
+}
