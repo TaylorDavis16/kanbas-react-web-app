@@ -1,4 +1,21 @@
-function CoursesButtons() {
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { setModule, addModule } from "../Modules/modulesReducer";
+function CoursesButtons({ course }) {
+  const module = useSelector((state) => state.modulesReducer.module);
+  const [adding, setAdding] = useState(false);
+  const dispatch = useDispatch();
+  const addNewModule = () => {
+    dispatch(
+      addModule({
+        ...module,
+        course: course._id,
+        _id: new Date().getTime().toString(),
+      })
+    );
+    dispatch(setModule({ name: "New Module", description: "New Description" }));
+    setAdding(false);
+  };
   return (
     <>
       <div
@@ -39,14 +56,60 @@ function CoursesButtons() {
             </li>
           </ul>
         </div>
-        <button className="btn btn-danger me-1 ellipsis" type="button">
-          <i className="fa fa-plus" aria-hidden="true"></i>
+        <button
+          className="btn btn-danger me-1 ellipsis"
+          type="button"
+          onClick={() => setAdding(!adding)}
+        >
+          <i
+            className={`fa fa-${adding ? "minus" : "plus"}`}
+            aria-hidden="true"
+          ></i>
           Module
         </button>
         <button className="btn btn-light me-1" type="button">
           <i className="fa fa-ellipsis-v" aria-hidden="true"></i>
         </button>
       </div>
+      {adding && (
+        <div className="d-flex justify-content-between align-items-center mt-3">
+          <input
+            placeholder="Module Name"
+            value={module.name}
+            className="form-control me-3"
+            onChange={(e) => {
+              dispatch(
+                setModule({
+                  ...module,
+                  course: course._id,
+                  name: e.target.value,
+                })
+              );
+            }}
+          />
+          <input
+            placeholder="Module Description"
+            value={module.description}
+            className="form-control me-3"
+            onChange={(e) => {
+              dispatch(
+                setModule({
+                  ...module,
+                  course: course._id,
+                  description: e.target.value,
+                })
+              );
+            }}
+          />
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={addNewModule}
+          >
+            Add Module
+          </button>
+        </div>
+      )}
       <hr />
     </>
   );

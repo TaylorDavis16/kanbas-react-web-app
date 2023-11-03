@@ -1,17 +1,26 @@
-import {Link} from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import Assignment3 from "./a3";
 import Nav from "../Nav";
+import Assignment4 from "./a4";
+import HelloWorld from "./a3/HelloWorld";
+import Kanbas from "../Kanbas";
+import store from "./a4/ReduxExamples/store";
+import { Provider } from "react-redux";
+
 function Labs() {
- return(
-  <div>
-    <a href="/labs/a1">A1</a> |
-    <a href="/labs/a2">A2</a> |
-   <Link to="/Labs/a3">A3</Link> |
-   <Link to="/hello">Hello</Link> |
-   <Link to="/Kanbas">Kanbas</Link>
-   <Nav/>
-   <Assignment3/>
-  </div>
- )
+  return (
+    <div>
+      <Provider store={store}>
+        <Nav />
+        <Routes>
+          <Route path="/" element={<Navigate to="a4" />} />
+          <Route path="a3" element={<Assignment3 />} />
+          <Route path="a4" element={<Assignment4 />} />
+          <Route path="hello" element={<HelloWorld />} />
+          <Route path="kanbas" element={<Kanbas />} />
+        </Routes>
+      </Provider>
+    </div>
+  );
 }
 export default Labs;

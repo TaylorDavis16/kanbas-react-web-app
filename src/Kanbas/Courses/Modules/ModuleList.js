@@ -1,7 +1,9 @@
-import Module from ".";
+import React from "react";
+import Module from "./";
+import { useSelector } from "react-redux";
 
-function ModuleList(props) {
-  const { modules } = props;
+function ModuleList({ course }) {
+  const modules = useSelector((state) => state.modulesReducer.modules).filter(e => e.course === course._id);
   return (
     <div className="list-group p-0 mb-5 rounded-0 course-module">
       <div
@@ -16,12 +18,12 @@ function ModuleList(props) {
           <a href="./">Week 0 - INTRO</a>
         </div>
         <div className="d-flex align-items-center title-icons float-end">
-          <i className="fa fa-plus me-3" aria-hidden="true"></i>
-          <i className="fa-solid fa-ellipsis-vertical"></i>
+          {/* <i className="fa fa-plus me-3" aria-hidden="true"></i> */}
+          {/* <i className="fa-solid fa-ellipsis-vertical"></i> */}
         </div>
       </div>
       {modules.map((module) => (
-        <Module key={module._id} {...module} />
+        <Module key={module._id} module={module} />
       ))}
     </div>
   );

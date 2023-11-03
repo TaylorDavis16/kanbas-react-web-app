@@ -1,11 +1,10 @@
 import ModuleList from "../Modules/ModuleList";
 
-function Home(props) {
-    const {course, modules} = props;
+function Home({course}) {
     return (
       <div>
         <h2>{course.name} Home</h2>
-        <ModuleList modules={modules} />
+        <ModuleList course={course}/>
       </div>
     );
   }
