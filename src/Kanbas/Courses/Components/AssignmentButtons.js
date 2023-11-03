@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
-
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setText } from "../Assignments/searchReducer";
 function AssignmentButtons({ course }) {
+  const text = useSelector((state) => state.searchReducer.text);
+  const dispatch = useDispatch();
   return (
     <>
       <div
@@ -10,8 +14,10 @@ function AssignmentButtons({ course }) {
         <div>
           <input
             type="text"
+            value={text}
             className="form-control"
             placeholder="Search for Assignment"
+            onChange={e => dispatch(setText(e.target.value))}
           />
         </div>
         <div>

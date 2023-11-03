@@ -1,67 +1,51 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./assignments.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteAssignment } from "./assignmentsReducer";
+import Assignment from "./Assignment";
+import { useNavigate } from "react-router";
 function Assignments({ course }) {
-  const assignments = useSelector((state) => state.assignmentsReducer.assignments).filter(e => e.course === course._id);
+  const searchText = useSelector((state) => state.searchReducer.text);
+  const assignments = useSelector(
+    (state) => state.assignmentsReducer.assignments
+  ).filter((e) => e.course === course._id && (e.title.includes(searchText) || e.description?.includes(searchText)));
+  const dispatch = useDispatch();
+  const handleDelete = (e, assignment) => {
+    e.preventDefault();
+    dispatch(deleteAssignment(assignment._id));
+  };
+  const navigate = useNavigate();
   return (
     <div>
       <div className="list-group p-0 mb-5 rounded-0 assignment-module">
         <div
           href="./"
-          className="d-flex list-group-item list-group-item-secondary module-title border-start-1 border-top-1 border-end-1 border-bottom-0"
+          className="d-flex list-group-item list-group-item-secondary border-start-1 border-top-1 border-end-1 border-bottom-0 justify-content-between"
         >
           <div className="d-flex align-items-center two-ellipsis">
             <i className="fa-solid fa-ellipsis-vertical"></i>
             <i className="fa-solid fa-ellipsis-vertical"></i>
+            <div className="ms-2">Assignments</div>
           </div>
-          <div className="ms-2 me-auto">
-            <a href="./">Assignments</a>
-          </div>
-          <div className="d-flex align-items-center title-icons">
-            <div className="rounded-pill border border-dark-subtle me-3">
-              <span className="mx-3 ">40% of Total</span>
+
+          <div className="d-flex align-items-center">
+            <div className="rounded-pill border border-dark-subtle">
+              <span className="mx-3">40% of Total</span>
             </div>
-            <i className="fa fa-plus me-3" aria-hidden="true"></i>
+            <button className="btn" onClick={() => navigate(`/Kanbas/Courses/${course._id}/Assignments/new`)}>
+              <i className="fa fa-plus" aria-hidden="true"></i>
+            </button>
             <i className="fa-solid fa-ellipsis-vertical"></i>
           </div>
         </div>
 
         {assignments.map((assignment) => (
-          <div
-            href="./"
-            className="d-flex align-items-center list-group-item assignment-item finished"
+          <Assignment
             key={assignment._id}
-          >
-            <div className="d-flex align-items-center two-ellipsis">
-              <i className="fa-solid fa-ellipsis-vertical"></i>
-              <i className="fa-solid fa-ellipsis-vertical"></i>
-            </div>
-            <Link
-              to={`/Kanbas/Courses/${course._id}/Assignments/${assignment._id}`}
-            >
-              <div className="ms-3 assignment-item-icon">
-                <i className="fa-regular fa-pen-to-square"></i>
-              </div>
-            </Link>
-            <div className="d-flex flex-column ms-3 me-auto">
-              <div className="assignment-item-title">
-                <Link
-                  to={`/Kanbas/Courses/${course._id}/Assignments/${assignment._id}`}
-                >
-                  {assignment._id}
-                </Link>
-              </div>
-              <div className="assignment-item-detail">{assignment.title}</div>
-              <div className="assignment-item-due-date">
-                <strong>Due</strong> {assignment.due ? assignment.due : "No Due Date"}
-              </div>
-            </div>
-            <div className="d-flex align-items-center float-end">
-              <i className="fa fa-check-circle me-3" aria-hidden="true"></i>
-              <i className="fa-solid fa-ellipsis-vertical"></i>
-            </div>
-          </div>
+            assignment={assignment}
+            course={course}
+            handleDelete={handleDelete}
+          />
         ))}
       </div>
     </div>

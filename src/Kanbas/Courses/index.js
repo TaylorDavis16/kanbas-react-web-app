@@ -1,4 +1,3 @@
-import db from "../Database";
 import {
   useLocation,
   Routes,
@@ -7,7 +6,7 @@ import {
   useParams,
 } from "react-router-dom";
 import CourseNavigation from "./Components/CourseNavigation";
-import React, { useState } from "react";
+import React from "react";
 import "./courses.css";
 import CourseHeader from "./Components/CourseHearder";
 import CoursesButtons from "./Components/CoursesButtons";
@@ -31,10 +30,6 @@ function Courses({ courses }) {
   }
 
   const course = courses.find((course) => course._id === courseId);
-
-  // const [modules, setModules] = useState(
-  //   db.modules.filter((m) => m.course === course._id)
-  // );
 
   if (course === undefined) {
     return <NotFoundPage />;
