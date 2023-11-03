@@ -1,6 +1,6 @@
 import "./dashboard.css";
 import Card from "./Card";
-import React, { useState } from "react";
+import React from "react";
 function Dashboard({
   courses,
   setCourses,
