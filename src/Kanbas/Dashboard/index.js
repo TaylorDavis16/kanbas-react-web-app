@@ -55,7 +55,7 @@ function Dashboard({
             <button
               type="button"
               className="btn btn-primary"
-              onClick={onEdit ? () => updateCourse(course._id) : addNewCourse}
+              onClick={onEdit ? () => updateCourse(course) : addNewCourse}
             >
               {onEdit ? "Update Course" : "Add Course"}
             </button>

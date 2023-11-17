@@ -1,18 +1,28 @@
 import Dashboard from "./Dashboard";
 import KanbasNavigation from "./KanbasNavigation";
 import Courses from "./Courses";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router";
 import "./kanbas.css";
 import NotFoundPage from "../404Page";
 import Account from "./Account";
 import Notice from "./Notice";
-import db from "./Database";
 import store from "./Store";
 import { Provider } from "react-redux";
+import axios from "axios";
 
 function Kanbas() {
-  const [courses, setCourses] = useState(db.courses);
+  const [courses, setCourses] = useState([]);
+
+  const URL = "http://localhost:4000/api/courses";
+  const findAllCourses = async () => {
+    const response = await axios.get(URL);
+    setCourses(response.data);
+  };
+  useEffect(() => {
+    findAllCourses();
+  }, []);
+
   const [course, setCourse] = useState({
     name: "New Course",
     number: "New Number",
@@ -20,17 +30,25 @@ function Kanbas() {
     endDate: "2023-12-15",
   });
   const [onEdit, setOnEdit] = useState(false);
-  const addNewCourse = () => {
-    setCourses([...courses, { ...course, _id: new Date().getTime() }]);
+  const addNewCourse = async () => {
+    const response = await axios.post(URL, course);
+    setCourses([...courses, response.data]);
   };
-  const deleteCourse = (courseId) => {
+  const deleteCourse = async (courseId) => {
+    const response = await axios.delete(
+      `${URL}/${course._id}`
+    );
     setCourses(courses.filter((course) => course._id !== courseId));
     if (course._id === courseId) {
       setOnEdit(false);
     }
   };
-  const updateCourse = (courseId) => {
-    setCourses(courses.map((c) => (c._id === courseId ? { ...course } : c)));
+  const updateCourse = async (course) => {
+    const response = await axios.put(
+      `${URL}/${course._id}`,
+      course
+    );
+    setCourses(courses.map((c) => (c._id === course._id ? response.data : c)));
     setOnEdit(false);
   };
   return (
