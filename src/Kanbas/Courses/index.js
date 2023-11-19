@@ -18,18 +18,38 @@ import AssignmentButtons from "./Components/AssignmentButtons";
 import AssignmentEditor from "./Assignments/AssignmentEditor";
 import Grades from "./Grades";
 import NotFoundPage from "../../404Page";
-function Courses({ courses }) {
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { useNavigate } from 'react-router-dom';
+
+
+function Courses() {
   let { courseId } = useParams();
   const location = useLocation();
   const paths = location.pathname.split("/"),
     oldCourse = courseId;
   let name = paths.length > 4 ? paths[4] : "Home";
+  // if (courseId === undefined) {
+  //   courseId = courses[0]._id;
+  // }
+  const navigate = useNavigate();
 
-  if (courseId === undefined) {
-    courseId = courses[0]._id;
-  }
-
-  const course = courses.find((course) => course._id === courseId);
+  const [course, setCourse] = useState({});
+  const URL = "https://kanbas-node-server-n1ky.onrender.com/api/courses";
+  useEffect(() => {
+    const findCourseById = async (courseId) => {
+      try {
+        const response = await axios.get(`${URL}/${courseId}`);
+        setCourse(response.data);
+        if (courseId === undefined) {
+          navigate(`/Kanbas/Courses/${response.data._id}/Home`);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    findCourseById(courseId);
+  }, [courseId, navigate]);
 
   if (course === undefined) {
     return <NotFoundPage />;
@@ -48,7 +68,7 @@ function Courses({ courses }) {
               <CoursesButtons course={course} />
             )}
             {name === "Assignments" && paths.length === 5 && (
-              <AssignmentButtons course={course}/>
+              <AssignmentButtons course={course} />
             )}
             <Routes>
               <Route
@@ -67,7 +87,7 @@ function Courses({ courses }) {
               />
               <Route
                 path="Assignments/:assignmentId"
-                element={<AssignmentEditor course={course}/>}
+                element={<AssignmentEditor course={course} />}
               />
               <Route path="Grades" element={<Grades course={course} />} />
               <Route path="*" element={<h1>No Content Yet</h1>} />

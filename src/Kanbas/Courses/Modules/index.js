@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateModule, deleteModule } from "../Modules/modulesReducer";
+import * as client from "./client";
 function Module(props) {
   const [module, setModule] = useState(props.module);
   const handleEdit = (e) => {
@@ -9,13 +10,19 @@ function Module(props) {
   };
   const dispatch = useDispatch();
   const handleSave = (e) => {
-    dispatch(updateModule(module));
-    setAdding(false);
+    e.preventDefault();
+    client.updateModule(module).then((status) => {
+      dispatch(updateModule(module));
+      setAdding(false);
+    });
   };
   const handleDelete = (e) => {
     e.preventDefault();
-    dispatch(deleteModule(module._id));
+    client.deleteModule(module._id).then((status) => {
+      dispatch(deleteModule(module._id));
+    });
   };
+
   const [adding, setAdding] = useState(false);
   return (
     <>

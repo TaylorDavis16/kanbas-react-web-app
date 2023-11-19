@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  sendAddAssignment,
+  sendUpdateAssignment,
+  sendDeleteAssignment,
+} from "../client";
+import {
   addAssignment,
   updateAssignment,
   deleteAssignment,
@@ -31,12 +36,23 @@ function AssignmentEditor({ course }) {
   const navigate = useNavigate();
   const handleSave = () => {
     if (cur !== undefined) {
-      dispatch(updateAssignment({ ...assignment }));
+      sendUpdateAssignment(assignment).then((res) => {
+        dispatch(updateAssignment(res));
+      });
     } else {
-      dispatch(addAssignment({ ...assignment }));
+      sendAddAssignment(assignment).then((res) => {
+        dispatch(addAssignment(res));
+      });
     }
     navigate(`/Kanbas/Courses/${assignment.course}/Assignments`);
   };
+
+  const handleDelete = () => {
+    sendDeleteAssignment(assignment).then((res) => {
+      dispatch(deleteAssignment(assignment._id));
+      navigate(`/Kanbas/Courses/${assignment.course}/Assignments`);
+    });
+  }
   return (
     <div className="container-fluid">
       <div>
@@ -134,10 +150,7 @@ function AssignmentEditor({ course }) {
         </button>
         {cur !== undefined && (
           <button
-            onClick={() => {
-              dispatch(deleteAssignment(assignmentId));
-              navigate(`/Kanbas/Courses/${assignment.course}/Assignments`);
-            }}
+            onClick={handleDelete}
             className="btn btn-danger me-2"
           >
             Delete

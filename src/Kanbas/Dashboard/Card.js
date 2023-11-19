@@ -41,7 +41,7 @@ function Card(props) {
             <div className="card-header-content-container">
               <h6 className="card-title ellipsis">
                 <span className="card-title-text">
-                  {course._id} {course.name}
+                  {course.name}
                 </span>
               </h6>
               <h5 className="card-subtitle mb-2 text-muted">{course.number}</h5>

@@ -1,20 +1,18 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setModule, addModule } from "../Modules/modulesReducer";
+import { createModule } from "../Modules/client";
 function CoursesButtons({ course }) {
   const module = useSelector((state) => state.modulesReducer.module);
   const [adding, setAdding] = useState(false);
   const dispatch = useDispatch();
-  const addNewModule = () => {
-    dispatch(
-      addModule({
-        ...module,
-        course: course._id,
-        _id: new Date().getTime().toString(),
-      })
-    );
-    dispatch(setModule({ name: "New Module", description: "New Description" }));
-    setAdding(false);
+
+  const handleAddModule = () => {
+    createModule(course._id, module).then((module) => {
+      dispatch(addModule(module));
+      dispatch(setModule({ name: "New Module", description: "New Description" }));
+      setAdding(false);
+    });
   };
   return (
     <>
@@ -104,7 +102,7 @@ function CoursesButtons({ course }) {
           <button
             type="button"
             className="btn btn-primary"
-            onClick={addNewModule}
+            onClick={handleAddModule}
           >
             Add Module
           </button>

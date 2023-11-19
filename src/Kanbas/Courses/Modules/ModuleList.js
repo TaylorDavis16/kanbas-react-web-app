@@ -1,8 +1,17 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Module from "./";
-import { useSelector } from "react-redux";
-
+import { useSelector, useDispatch } from "react-redux";
+import { findModulesForCourse } from "./client";
+import { setModules } from "./modulesReducer";
 function ModuleList({ course }) {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    findModulesForCourse(course._id)
+      .then((modules) =>
+        dispatch(setModules(modules))
+    );
+  }, [course._id, dispatch]);
+
   const modules = useSelector((state) => state.modulesReducer.modules).filter(e => e.course === course._id);
   return (
     <div className="list-group p-0 mb-5 rounded-0 course-module">

@@ -14,7 +14,7 @@ import axios from "axios";
 function Kanbas() {
   const [courses, setCourses] = useState([]);
 
-  const URL = "http://localhost:4000/api/courses";
+  const URL = "https://kanbas-node-server-n1ky.onrender.com/api/courses";
   const findAllCourses = async () => {
     const response = await axios.get(URL);
     setCourses(response.data);
@@ -35,19 +35,15 @@ function Kanbas() {
     setCourses([...courses, response.data]);
   };
   const deleteCourse = async (courseId) => {
-    const response = await axios.delete(
-      `${URL}/${course._id}`
-    );
-    setCourses(courses.filter((course) => course._id !== courseId));
-    if (course._id === courseId) {
-      setOnEdit(false);
-    }
+    await axios.delete(`${URL}/${course._id}`).then((response) => {
+      setCourses(courses.filter((course) => course._id !== courseId));
+      if (course._id === courseId) {
+        setOnEdit(false);
+      }
+    });
   };
   const updateCourse = async (course) => {
-    const response = await axios.put(
-      `${URL}/${course._id}`,
-      course
-    );
+    const response = await axios.put(`${URL}/${course._id}`, course);
     setCourses(courses.map((c) => (c._id === course._id ? response.data : c)));
     setOnEdit(false);
   };
@@ -81,6 +77,7 @@ function Kanbas() {
                 />
               }
             />
+            {/* <Route path="Courses/undefined/*" element={<Navigate to={`/Kanbas/Courses/${courses[0]._id}`} />} /> */}
             <Route
               path="Courses/:courseId/*"
               element={<Courses courses={courses} />}

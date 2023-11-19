@@ -1,19 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./assignments.css";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteAssignment } from "./assignmentsReducer";
+import { deleteAssignment, setAssignments } from "./assignmentsReducer";
 import Assignment from "./Assignment";
 import { useNavigate } from "react-router";
+import { sendGetAssignment, sendDeleteAssignment } from "./client";
 function Assignments({ course }) {
   const searchText = useSelector((state) => state.searchReducer.text);
   const assignments = useSelector(
     (state) => state.assignmentsReducer.assignments
-  ).filter((e) => e.course === course._id && (e.title.includes(searchText) || e.description?.includes(searchText)));
+  ).filter(
+    (e) => e.title.includes(searchText) || e.description?.includes(searchText)
+  );
   const dispatch = useDispatch();
   const handleDelete = (e, assignment) => {
     e.preventDefault();
-    dispatch(deleteAssignment(assignment._id));
+    sendDeleteAssignment(assignment).then((res) => {
+      dispatch(deleteAssignment(assignment._id));
+    });
   };
+  useEffect(() => {
+    const findAllAssignments = async () => {
+      sendGetAssignment(course._id).then((res) => {
+        dispatch(setAssignments(res));
+      });
+    };
+    findAllAssignments();
+  }, [course._id, dispatch]);
   const navigate = useNavigate();
   return (
     <div>
@@ -32,7 +45,12 @@ function Assignments({ course }) {
             <div className="rounded-pill border border-dark-subtle">
               <span className="mx-3">40% of Total</span>
             </div>
-            <button className="btn" onClick={() => navigate(`/Kanbas/Courses/${course._id}/Assignments/new`)}>
+            <button
+              className="btn"
+              onClick={() =>
+                navigate(`/Kanbas/Courses/${course._id}/Assignments/new`)
+              }
+            >
               <i className="fa fa-plus" aria-hidden="true"></i>
             </button>
             <i className="fa-solid fa-ellipsis-vertical"></i>
