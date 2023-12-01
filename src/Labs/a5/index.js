@@ -7,7 +7,7 @@ function Assignment5() {
     <div>
       <h1>Assignment 5</h1>
       <div className="list-group">
-        <a href="https://kanbas-node-server-n1ky.onrender.com/a5/welcome"
+        <a href={`${process.env.REACT_APP_BASE_API_URL}/a5/welcome`}
            className="list-group-item">
           Welcome
         </a>

@@ -18,41 +18,40 @@ import AssignmentButtons from "./Components/AssignmentButtons";
 import AssignmentEditor from "./Assignments/AssignmentEditor";
 import Grades from "./Grades";
 import NotFoundPage from "../../404Page";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import axios from "axios";
-import { useNavigate } from 'react-router-dom';
-
+import { useNavigate } from "react-router-dom";
 
 function Courses() {
-  let { courseId } = useParams();
+  let courseId = useRef(useParams().courseId);
   const location = useLocation();
   const paths = location.pathname.split("/"),
-    oldCourse = courseId;
+    oldCourse = courseId.current;
   let name = paths.length > 4 ? paths[4] : "Home";
   // if (courseId === undefined) {
   //   courseId = courses[0]._id;
   // }
-  const navigate = useNavigate();
+  const navigate = useRef(useNavigate());
 
   const [course, setCourse] = useState({});
-  const URL = "https://kanbas-node-server-n1ky.onrender.com/api/courses";
+  const URL = `${process.env.REACT_APP_BASE_API_URL}/api/courses`;
   useEffect(() => {
     const findCourseById = async (courseId) => {
       try {
-        const response = await axios.get(`${URL}/${courseId}`);
+        const response = await axios.get(`${URL}/${courseId.current}`);
         setCourse(response.data);
-        if (courseId === undefined) {
-          navigate(`/Kanbas/Courses/${response.data._id}/Home`);
+        if (courseId.current === undefined) {
+          navigate.current(`/Kanbas/Courses/${response.data._id}/Home`);
         }
       } catch (error) {
         console.log(error);
       }
     };
     findCourseById(courseId);
-  }, [courseId, navigate]);
+  }, [URL]);
 
   if (course === undefined) {
-    return <NotFoundPage />;
+    return <NotFoundPage homeLink="/Kanbas" />;
   }
 
   return (

@@ -14,14 +14,15 @@ import axios from "axios";
 function Kanbas() {
   const [courses, setCourses] = useState([]);
 
-  const URL = "https://kanbas-node-server-n1ky.onrender.com/api/courses";
-  const findAllCourses = async () => {
-    const response = await axios.get(URL);
-    setCourses(response.data);
-  };
+  const URL = `${process.env.REACT_APP_BASE_API_URL}/api/courses`;
+  
   useEffect(() => {
+    const findAllCourses = async () => {
+      const response = await axios.get(URL);
+      setCourses(response.data);
+    };
     findAllCourses();
-  }, []);
+  }, [URL]);
 
   const [course, setCourse] = useState({
     name: "New Course",
@@ -89,7 +90,7 @@ function Kanbas() {
             <Route path="Studio" element={<Notice />} />
             <Route path="Commons" element={<Notice />} />
             <Route path="Help" element={<Notice />} />
-            <Route path="*" element={<NotFoundPage />} />
+            <Route path="*" element={<NotFoundPage homeLink="/Kanbas"/>} />
           </Routes>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import axios from "axios";
 import { useEffect } from "react";
 function WorkingWithObjects() {
@@ -10,32 +10,33 @@ function WorkingWithObjects() {
     completed: false,
     score: 0,
   });
-  const URL = "https://kanbas-node-server-n1ky.onrender.com/a5/assignment";
-  const fetchAssignment = async () => {
-    const response = await axios.get(`${URL}`);
-    setAssignment(response.data);
-  };
+  const URL = `${process.env.REACT_APP_BASE_API_URL}/a5/assignment`;
+  const fetchAssignment = useRef(null);
   const updateTitle = async () => {
     const response = await axios.get(`${URL}/title/${assignment.title}`);
     setAssignment(response.data);
   };
   useEffect(() => {
-    fetchAssignment();
-  }, []);
+    fetchAssignment.current = async () => {
+      const response = await axios.get(`${URL}`);
+      setAssignment(response.data);
+    };
+    fetchAssignment.current();
+  }, [URL]);
 
   return (
     <div>
       <h3>Working With Objects</h3>
       <h4>Retrieving Objects</h4>
       <a
-        href="https://kanbas-node-server-n1ky.onrender.com/a5/assignment"
+        href={`${process.env.REACT_APP_BASE_API_URL}/a5/assignment`}
         className="btn btn-primary me-2"
       >
         Get Assignment
       </a>
       <h4>Retrieving Properties</h4>
       <a
-        href="https://kanbas-node-server-n1ky.onrender.com/a5/assignment/title"
+        href={`${process.env.REACT_APP_BASE_API_URL}/a5/assignment/title`}
         className="btn btn-primary me-2"
       >
         Get Title
@@ -59,7 +60,7 @@ function WorkingWithObjects() {
       <button onClick={updateTitle} className="w-100 btn btn-primary mb-2">
         Update Title to: {assignment.title}
       </button>
-      <button onClick={fetchAssignment} className="w-100 btn btn-danger mb-2">
+      <button onClick={fetchAssignment.current} className="w-100 btn btn-danger mb-2">
         Fetch Assignment
       </button>
 

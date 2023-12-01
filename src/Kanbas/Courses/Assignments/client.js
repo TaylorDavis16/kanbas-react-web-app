@@ -1,5 +1,5 @@
 import axios from "axios";
-const COURSES_URL = "https://kanbas-node-server-n1ky.onrender.com/api/courses";
+const COURSES_URL = `${process.env.REACT_APP_BASE_API_URL}/api/courses`;
 
 export const sendGetAssignment = async (cid) => {
   const response = await axios.get(`${COURSES_URL}/${cid}/Assignments`);

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 function WorkingWithArrays() {
   const [errorMessage, setErrorMessage] = useState('');
-  const API = "https://kanbas-node-server-n1ky.onrender.com/a5/todos";
+  const API = `${process.env.REACT_APP_BASE_API_URL}/a5/todos`;
   const [todo, setTodo] = useState({
     id: 1,
     title: "NodeJS Assignment",
@@ -16,10 +16,6 @@ function WorkingWithArrays() {
     setTodos([...todos, response.data]);
   };
 
-  const fetchTodos = async () => {
-    const response = await axios.get(API);
-    setTodos(response.data);
-  };
   const removeTodo = async (todo) => {
     try {
       const response = await axios.get(`${API}/${todo.id}/delete`);
@@ -66,8 +62,12 @@ function WorkingWithArrays() {
   };
 
   useEffect(() => {
+    const fetchTodos = async () => {
+      const response = await axios.get(API);
+      setTodos(response.data);
+    };
     fetchTodos();
-  }, []);
+  }, [API]);
 
   return (
     <div>
