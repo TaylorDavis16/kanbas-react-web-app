@@ -1,5 +1,5 @@
 import { trimDob, restoreDob } from "../tools/datehandler";
-export default function Accountdetails({ account, setAccount, save, disabled, modifiable}) {
+export default function Accountdetails({ account, setAccount, currentUser ,save, disabled, modifiable}) {
   return (
     <div className="mt-3">
       <div className="row align-items-center">
@@ -21,7 +21,7 @@ export default function Accountdetails({ account, setAccount, save, disabled, mo
                       setAccount({...account, password: e.target.value})
                     }
                     required
-                    disabled={!modifiable}
+                    disabled={!modifiable && account._id !== currentUser._id}
                   />
                 </div>
 
@@ -38,7 +38,7 @@ export default function Accountdetails({ account, setAccount, save, disabled, mo
                         setAccount({...account, firstName: e.target.value})
                     }
                     required
-                    disabled={!modifiable}
+                    disabled={!modifiable && account._id !== currentUser._id}
                   />
                 </div>
 
@@ -55,7 +55,7 @@ export default function Accountdetails({ account, setAccount, save, disabled, mo
                       setAccount({...account, lastName: e.target.value})
                     }
                     required
-                    disabled={!modifiable}
+                    disabled={!modifiable && account._id !== currentUser._id}
                   />
                 </div>
 
@@ -72,7 +72,7 @@ export default function Accountdetails({ account, setAccount, save, disabled, mo
                       setAccount({...account, dob: restoreDob(e.target.value)})
                     }
                     required
-                    disabled={!modifiable}
+                    disabled={!modifiable && account._id !== currentUser._id}
                   />
                 </div>
 
@@ -89,7 +89,7 @@ export default function Accountdetails({ account, setAccount, save, disabled, mo
                       setAccount({...account, email: e.target.value})
                     }
                     required
-                    disabled={!modifiable}
+                    disabled={!modifiable && account._id !== currentUser._id}
                   />
                 </div>
 

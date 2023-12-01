@@ -92,7 +92,8 @@ function Account() {
         setAccount={setAccount}
         disabled={disabled}
         save={save}
-        modifiable={currentUser.role === "ADMIN" && (account.role !== "ADMIN" || account._id === currentUser._id)}
+        currentUser={currentUser}
+        modifiable={account._id === currentUser._id ? (account.role === "ADMIN") : (account.role !== "ADMIN")}
       />
     </div>
   );
